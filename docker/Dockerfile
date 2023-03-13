@@ -5,6 +5,9 @@ FROM debian:buster-slim
 ARG APTPROXY=
 RUN test -n "$APTPROXY" && printf 'Acquire::http { Proxy "%s"; }\n' $APTPROXY | tee -a /etc/apt/apt.conf.d/proxy || true
 
+ARG DISTRO=ubuntu
+ENV DISTRO=$DISTRO
+
 # prevent dpkg interactive dialogues
 ENV DEBIAN_FRONTEND=noninteractive
 

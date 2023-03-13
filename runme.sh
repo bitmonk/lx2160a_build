@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 ###############################################################################
 # General configurations
@@ -629,7 +630,7 @@ dd if=$ROOTDIR/images/tmp/$ROOTFS.ext4 of=$ROOTDIR/images/tmp/$ROOTFS.img bs=1M 
 
 echo "Assembling Boot Image"
 cd $ROOTDIR/
-IMG=lx2160acex7_${SPEED}_${SERDES}-${REPO_PREFIX}.img
+IMG=lx2160acex7_${SPEED}_${SERDES}-${DISTRO}-${REPO_PREFIX}.img
 rm -rf $ROOTDIR/images/${IMG}
 truncate -s 528M $ROOTDIR/images/${IMG}
 #dd if=/dev/zero of=$ROOTDIR/images/${IMG} bs=1M count=1
